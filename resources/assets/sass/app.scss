@@ -1,0 +1,16 @@
+@import "bootstrap/bootstrap";
+
+$btn-font-weight: 300;
+$font-family-sans-serif: "Roboto", Helvetica, Arial, sans-serif;
+
+body, label, .checkbox label {
+  font-weight: 300;
+}
+
+.nav-gravatar {
+  float: left;
+  position: relative;
+  top: -7px;
+  left: -7px;
+  border: 1px solid #555555;
+}
