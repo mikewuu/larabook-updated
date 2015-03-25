@@ -2,28 +2,30 @@
 
 @section('content')
 
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    
+
     @include('errors/list')
 
-    <h1>Post a Status</h1>
+        <div class="status-post">
+            {!! Form::open() !!}
+            <!-- Status Form Input -->
+            <div class="form-group">
+                {!! Form::textarea('body', null, ['class'=>'form-control', 'rows' => 3, 'placeholder' => "What's on your mind?"]) !!}
+            </div>
 
-    {!! Form::open() !!}
-    <!-- Status Form Input -->
-    <div class="form-group">
-        {!! Form::label('body', 'Status:') !!}
-        {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
-    </div>
+            <!-- Submit -->
+            <div class="form-group status-post-submit">
+                {!! Form::submit('Post Status', ['class' => 'btn btn-default btn-xs']) !!}
+            </div>
+            {!! Form::close() !!}
+        </div>
 
-    <!-- Submit -->
-    <div class="form-group">
-        {!! Form::submit('Post Status', ['class' => 'btn btn-primary form-control']) !!}
-    </div>
-    {!! Form::close() !!}
 
     @foreach($statuses as $status)
-
-        <article>
-            {{ $status->body }}
-        </article>
-
+        @include('statuses.partials.status')
     @endforeach
+    </div>
+    </div>
     @stop

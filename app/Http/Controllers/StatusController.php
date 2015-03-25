@@ -20,7 +20,7 @@ class StatusController extends Controller {
 
         // return $statusRepo->getAllForUser(Auth::user());
 
-        $statuses = Status::all();
+        $statuses = Status::all()->sortByDesc('created_at');
         return view('statuses.index')->with('statuses', $statuses);
     }
 

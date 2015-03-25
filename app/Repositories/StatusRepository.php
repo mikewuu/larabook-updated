@@ -12,7 +12,7 @@ class StatusRepository {
      */
     public function getAllForUser(User $user)
     {
-        return $user->statuses()->get();
+        return $user->statuses()->with('user')->latest()->get(); //order by('created_at', 'desc')
     }
 
     public function save(Status $status, $userId)
