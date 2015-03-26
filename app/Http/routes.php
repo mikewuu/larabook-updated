@@ -26,3 +26,9 @@ Route::controllers([
 Route::get('statuses', 'StatusController@index');
 Route::post('statuses', 'StatusController@store');
 
+
+/**
+ * Users
+ */
+
+Route::get('users', 'UsersController@index');

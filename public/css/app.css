@@ -4867,5 +4867,13 @@ body, label, .checkbox label {
   padding: 1em;
   margin-bottom: 2em; }
 
+.users {
+  margin-bottom: 3em; }
+
+.user-block {
+  text-align: center; }
+  .user-block .avatar {
+    margin: auto; }
+
 
 /*# sourceMappingURL=app.css.map */

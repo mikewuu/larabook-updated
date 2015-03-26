@@ -1,6 +1,6 @@
 <article class="media status-media">
     <div class="pull-left">
-        <img class="media-object" src="{{ $status->user->present()->gravatar }}" alt="{{ $status->user->name }}">
+        @include('layouts.partials.avatar' , ['user' => $status->user])
     </div>
 
     <div class="media-body">
