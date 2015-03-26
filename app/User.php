@@ -49,7 +49,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @param $currentUser
      * @return bool
      */
-    public function current($currentUser)
+    public function isCurrent($currentUser)
     {
         if ($currentUser->id == Auth::user()->id)
         {

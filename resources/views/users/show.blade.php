@@ -10,7 +10,7 @@
 
         </div>
         <div class="col-md-6">
-            @if($user->current($user))
+            @if($user->isCurrent($user))
                 @include('statuses.partials.publish-status-form')
             @endif
 

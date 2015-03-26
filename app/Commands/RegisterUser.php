@@ -24,11 +24,9 @@ class RegisterUser extends Command implements SelfHandling {
      * @param Registrar $registrar
      * @param Guard $auth
      */
-    public function __construct(Request $request, Registrar $registrar, Guard $auth)
+    public function __construct($request)
     {
         $this->request = $request;
-        $this->registrar = $registrar;
-        $this->auth= $auth;
     }
 
     /**
@@ -36,11 +34,10 @@ class RegisterUser extends Command implements SelfHandling {
      *
      * @return void
      */
-    public function handle()
+    public function handle(Registrar $registrar, Guard $auth)
     {
-
         // Create and Register User
-        $this->auth->login($this->registrar->create($this->request->all()));
+        $auth->login($registrar->create($this->request->all()));
 
     }
 
