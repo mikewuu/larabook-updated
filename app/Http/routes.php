@@ -33,3 +33,10 @@ Route::post('statuses', 'StatusController@store');
 
 Route::get('users', 'UsersController@index');
 Route::get('users/{id}', 'UsersController@show');
+
+/**
+ * Follows controller
+ */
+
+Route::post('follows', 'FollowersController@store');
+Route::delete('follows/{id}', 'FollowersController@destroy');

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PublishStatusRequest;
 // use App\Repositories\StatusRepository;
 use App\Status;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -15,12 +16,14 @@ use Laracasts\Flash\Flash;
 class StatusController extends Controller {
 
 
-    public function index(/*StatusRepository $statusRepo*/)
+    public function index(Status $status)
     {
+        $userIds = Auth::user()->followedUsers()->lists('followed_id');
+        $userIds[] = Auth::user()->id;
 
-        // return $statusRepo->getAllForUser(Auth::user());
+        // WhereIn to find where a column's value equals the value in an array
+        $statuses = $status->whereIn('user_id', $userIds)->latest()->get();
 
-        $statuses = Status::all()->sortByDesc('created_at');
         return view('statuses.index')->with('statuses', $statuses);
     }
 

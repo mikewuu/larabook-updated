@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Traits\FollowableTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -10,31 +11,31 @@ use Laracasts\Presenter\PresentableTrait;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword, PresentableTrait;
+    use Authenticatable, CanResetPassword, PresentableTrait, FollowableTrait;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     protected $presenter = 'App\Presenters\UserPresenter';
 
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = ['name', 'email', 'password'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'password'];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = ['password', 'remember_token'];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = ['password', 'remember_token'];
 
     public function statuses()
     {
@@ -42,22 +43,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
-    /**
-     * Determine if given user is the currently logged in user
-     * pass in the user object.
-     *
-     * @param $currentUser
-     * @return bool
-     */
-    public function isCurrent($currentUser)
-    {
-        if ($currentUser->id == Auth::user()->id)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }
