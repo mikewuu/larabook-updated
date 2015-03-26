@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Support\Facades\Auth;
 use Laracasts\Presenter\PresentableTrait;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
@@ -38,5 +39,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function statuses()
     {
         return $this->hasMany('App\Status');
+    }
+
+
+    /**
+     * Determine if given user is the currently logged in user
+     * pass in the user object.
+     *
+     * @param $currentUser
+     * @return bool
+     */
+    public function current($currentUser)
+    {
+        if ($currentUser->id == Auth::user()->id)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

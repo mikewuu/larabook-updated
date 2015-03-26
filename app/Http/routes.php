@@ -32,3 +32,4 @@ Route::post('statuses', 'StatusController@store');
  */
 
 Route::get('users', 'UsersController@index');
+Route::get('users/{id}', 'UsersController@show');

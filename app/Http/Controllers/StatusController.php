@@ -30,7 +30,8 @@ class StatusController extends Controller {
 
         Flash::info('Your status has been updated');
 
-        return Redirect::refresh();
+        // Redirects back to the page that submitted the form
+        return Redirect::back();
     }
 
 }

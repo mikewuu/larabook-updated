@@ -7,12 +7,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Laravel</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Larabook</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/') }}">Home</a></li>
+                <li class="active"><a href="{{ url('users') }}">Browse Users</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
+                            <li><a href="{{ url('/users/' . Auth::user()->id) }}">My Profile</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li class="divider"></li>
