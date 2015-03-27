@@ -9,3 +9,22 @@
     {{ $status->body }}
     </div>
 </article>
+
+@if(Auth::check())
+    {!! Form::open(['url' => 'statuses/' . $status->id . '/comments', 'class' => 'comments-create-form']) !!}
+    {!! Form::hidden('status_id', $status->id ) !!}
+    <!-- Body Form Input -->
+    <div class="form-group">
+        {!! Form::textarea('body', null, ['class'=>'form-control', 'rows' => 1]) !!}
+    </div>
+
+    {!! Form::close() !!}
+    @endif
+
+@unless ($status->comments->isEmpty())
+    <div class="comments">
+        @foreach($status->comments as $comment)
+        @include('statuses.partials.comments')
+            @endforeach
+    </div>
+    @endunless

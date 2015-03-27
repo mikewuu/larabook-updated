@@ -24,7 +24,8 @@ class StatusController extends Controller {
             $userIds[] = Auth::user()->id;
 
             // WhereIn to find where a column's value equals the value in an array
-            $statuses = $status->whereIn('user_id', $userIds)->latest()->get();
+            // Eager loading comments
+            $statuses = $status->with('comments')->whereIn('user_id', $userIds)->latest()->get();
         }
         else
         {

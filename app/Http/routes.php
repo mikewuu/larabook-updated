@@ -26,6 +26,7 @@ Route::controllers([
 Route::get('statuses', 'StatusController@index');
 Route::post('statuses', 'StatusController@store');
 
+Route::post('statuses/{id}/comments', 'CommentsController@store');
 
 /**
  * Users
