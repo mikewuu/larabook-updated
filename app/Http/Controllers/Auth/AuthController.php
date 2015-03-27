@@ -20,7 +20,7 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 
-    public $redirectTo = '/';
+    public $redirectTo = '/statuses';
 
 	/**
 	 * Create a new authentication controller instance.

@@ -9,12 +9,12 @@ class UserRegistered extends Event {
 
 	use SerializesModels;
 
-	/**
-	 * Create a new event instance.
-	 *
-	 * @return void
-	 */
-	public function __construct(User $user)
+    /**
+     * Create a new event instance.
+     *
+     * @param $user
+     */
+	public function __construct($user)
 	{
 		$this->user = $user;
 	}

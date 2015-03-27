@@ -34,10 +34,16 @@ class UsersController extends Controller {
          *
          * Eager Load Constraints
          */
-        $user = User::with(['statuses' => function($query)
-        {
-            $query->latest();
-        }])->findOrFail($id);
+
+        // Method 1 - In controller
+//            $user = User::with(['statuses' => function($query)
+//            {
+//                $query->latest();
+//            }])->findOrFail($id);
+
+        // Method 2 - latest() method in user model
+
+        $user = User::with('statuses')->findOrFail($id);
 
 
         return view('users.show', compact('user', $user));

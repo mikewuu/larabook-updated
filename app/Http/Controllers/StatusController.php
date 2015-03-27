@@ -18,11 +18,19 @@ class StatusController extends Controller {
 
     public function index(Status $status)
     {
-        $userIds = Auth::user()->followedUsers()->lists('followed_id');
-        $userIds[] = Auth::user()->id;
+        if(Auth::check())
+        {
+            $userIds = Auth::user()->followedUsers()->lists('followed_id');
+            $userIds[] = Auth::user()->id;
 
-        // WhereIn to find where a column's value equals the value in an array
-        $statuses = $status->whereIn('user_id', $userIds)->latest()->get();
+            // WhereIn to find where a column's value equals the value in an array
+            $statuses = $status->whereIn('user_id', $userIds)->latest()->get();
+        }
+        else
+        {
+            $statuses = $status->all();
+        }
+
 
         return view('statuses.index')->with('statuses', $statuses);
     }

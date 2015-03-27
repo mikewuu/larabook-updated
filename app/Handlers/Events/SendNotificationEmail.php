@@ -2,19 +2,20 @@
 
 use App\Events\UserRegistered;
 
+use App\Mailers\UserMailer;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 
 class SendNotificationEmail {
 
-	/**
-	 * Create the event handler.
-	 *
-	 * @return void
-	 */
-	public function __construct()
+    /**
+     * Create the event handler.
+     *
+     * @param UserMailer $mailer
+     */
+	public function __construct(UserMailer $mailer)
 	{
-		//
+		$this->mailer = $mailer;
 	}
 
 	/**
@@ -25,7 +26,7 @@ class SendNotificationEmail {
 	 */
 	public function handle(UserRegistered $event)
 	{
-		dd('send a notification email');
+		$this->mailer->sendWelcomeMessageTo($event->user);
 	}
 
 }

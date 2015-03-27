@@ -4834,8 +4834,45 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-body, label, .checkbox label {
-  font-weight: 300; }
+.status-media {
+  border: 1px solid #e3e3e3;
+  background: white;
+  padding: 1em;
+  margin-bottom: 2em; }
+
+.status-media-body {
+  color: #B3BAC0;
+  font-size: 1.2em;
+  padding: .5em 1em 1em 1em; }
+
+.status-media-object {
+  position: relative;
+  top: 13px;
+  left: 10px;
+  border: 1px solid #eeeeee; }
+
+.status-media-time {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 0.15em;
+  color: #ccd0d3; }
+
+.btn-primary {
+  background: #00Bae9;
+  border: 1px solid #0091b6; }
+
+.navbar-default {
+  background: #00Bae9;
+  border: none;
+  border-radius: 0; }
+  .navbar-default .navbar-brand {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em; }
+  .navbar-default .navbar-nav > li > a {
+    color: #fff; }
+    .navbar-default .navbar-nav > li > a:hover {
+      color: #2C6C91; }
 
 .nav-gravatar {
   float: left;
@@ -4843,6 +4880,29 @@ body, label, .checkbox label {
   top: -7px;
   left: -7px;
   border: 1px solid #555555; }
+
+.users {
+  margin-bottom: 3em; }
+
+.user-block {
+  text-align: center; }
+  .user-block .avatar {
+    margin: auto;
+    top: 0px;
+    left: 0px; }
+
+body, label, .checkbox label {
+  font-weight: 300; }
+
+body {
+  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif; }
+
+.page-header {
+  text-align: center;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #dddddd; }
 
 .status-post {
   border: 1px solid #e3e3e3;
@@ -4857,23 +4917,17 @@ body, label, .checkbox label {
     border-top: 1px solid #e9e9e9;
     padding: .5em 1em;
     margin-bottom: 0;
-    overflow: hidden; }
-  .status-post .btn {
-    float: right; }
-
-.status-media {
-  border: 1px solid #e3e3e3;
-  background: white;
-  padding: 1em;
-  margin-bottom: 2em; }
-
-.users {
-  margin-bottom: 3em; }
-
-.user-block {
-  text-align: center; }
-  .user-block .avatar {
-    margin: auto; }
+    overflow: hidden;
+    background: #FDFDFC; }
+    .status-post .status-post-submit .btn {
+      float: right;
+      background: #2eb1e4;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif; }
+      .status-post .status-post-submit .btn:hover {
+        background: #2790b1; }
 
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,29 @@
+// Nav
+
+.navbar-default {
+  background: #00Bae9;
+  border:none;
+  border-radius: 0;
+
+  .navbar-brand {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .navbar-nav > li > a {
+    color: #fff;
+
+    &:hover {
+      color: #2C6C91;
+    }
+  }
+}
+
+.nav-gravatar {
+  float: left;
+  position: relative;
+  top: -7px;
+  left: -7px;
+  border: 1px solid #555555;
+}

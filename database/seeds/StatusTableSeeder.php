@@ -14,11 +14,12 @@ class StatusTableSeeder extends Seeder{
         // Array that contains various id's of user table
         $users = User::lists('id');
 
-        foreach(range(1, 50) as $index)
+        foreach(range(1, 1000) as $index)
         {
             Status::create([
                 'user_id' => $faker->randomElement($users),
                 'body' => $faker->sentence(),
+                'created_at' => $faker->dateTimeThisMonth($max='Now')
             ]);
         }
     }

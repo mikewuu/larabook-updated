@@ -31,12 +31,14 @@
         </div>
         <div class="col-md-6">
 
-            @unless($user->is(Auth::user()))
-                @include('users.partials.follow-form')
-            @endunless
+            @if(Auth::check())
+                @unless($user->is(Auth::user()))
+                    @include('users.partials.follow-form')
+                @endunless
 
-            @if($user->is(Auth::user()))
-                @include('statuses.partials.publish-status-form')
+                @if($user->is(Auth::user()))
+                    @include('statuses.partials.publish-status-form')
+                @endif
             @endif
 
             @include('statuses.partials.statuses' ,['statuses' => $user->statuses])

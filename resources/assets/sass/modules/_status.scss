@@ -1,0 +1,28 @@
+
+// Each Individual status
+.status-media {
+  border: 1px solid #e3e3e3;
+  background: white;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+.status-media-body {
+  color: #B3BAC0;
+  font-size: 1.2em;
+  padding: .5em 1em 1em 1em;
+}
+
+.status-media-object {
+  position: relative;
+  top: 13px;
+  left: 10px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.status-media-time {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 0.15em;
+  color: rgb(204, 208, 211);
+}
